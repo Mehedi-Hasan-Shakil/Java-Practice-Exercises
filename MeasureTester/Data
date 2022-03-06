@@ -1,0 +1,13 @@
+public class Data {
+    public static double average(Object[] objects, Measure measure) {
+        double sum = 0;
+        for (Object object : objects) {
+            sum = sum + measure.measure(object);
+        }
+        if (objects.length > 0) {
+            return sum / objects.length;
+        } else {
+            return 0;
+        }
+    }
+}
