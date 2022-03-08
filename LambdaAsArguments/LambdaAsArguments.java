@@ -13,10 +13,10 @@ class LambdaAsArguments {
     public static void main(String[] args) {
         String inStr = "Lambdas add power to Java";
         System.out.println("Before String Operation : " + inStr);
-        String outStr = stringOperation((str) -> str.toUpperCase(), inStr);
+        String outStr = stringOperation((str) -> str.toUpperCase(), inStr); //UpperCase of a string
         System.out.println("After String Operation : " + outStr);
 
-        //Remove spaces
+        //To remove spaces
         String spaceFreeString = stringOperation((str) -> {
             String result = "";
             for (int i = 0; i < str.length(); i++) {
