@@ -5,7 +5,7 @@ that prints the die values, marking only the longest run, like this:
 If there is more than one run of maximum length, mark the first one.
  */
 
-public class DieTossSequence {
+public class DieTossLongestSequence {
     public static void main(String[] args) {
         final int TOSS = 20;
         int[] dieToss = new int[TOSS];
