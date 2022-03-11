@@ -20,8 +20,8 @@ public class ComboLock {
     }
 
     public void turnLeft(int ticks) {
-        if (currentPosition - ticks < 0) {
-            currentPosition = MAX_NUMBER - (ticks - currentPosition) + 2;
+        if (currentPosition < ticks) {
+            currentPosition = MAX_NUMBER - (ticks - currentPosition) + 1;
         } else {
             currentPosition = currentPosition - ticks;
         }
@@ -31,21 +31,29 @@ public class ComboLock {
     }
 
     public void turnRight(int ticks) {
-        if (!position1 && firstTurnToRight) {
+        if (firstTurnToRight) {
             currentPosition = ticks;
             if (currentPosition == secrete1) {
                 position1 = true;
             }
             firstTurnToRight = false;
         } else {
-            currentPosition = currentPosition + ticks - (MAX_NUMBER + 2);
+            if (currentPosition + ticks > MAX_NUMBER) {
+                currentPosition = currentPosition + ticks - (MAX_NUMBER + 1);
+            } else {
+                currentPosition = currentPosition + ticks;
+            }
             if (currentPosition == secrete3) {
                 position3 = true;
             }
         }
     }
 
-    public boolean open() {
-        return position1 && position2 && position3;
+    public void open() {
+        if (position1 && position2 && position3) {
+            System.out.println("Congratulation!!! Opened.");
+        } else {
+            System.out.println("Wrong combination");
+        }
     }
 }
