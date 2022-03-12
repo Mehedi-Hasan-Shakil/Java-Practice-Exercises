@@ -7,7 +7,7 @@ import java.util.Scanner;
   improper inputs.
  */
 
-public class Total {
+public class NumberInputs {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int chances = 3;
