@@ -1,14 +1,17 @@
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-public class BankAccountTester {
+public class WordCountTester {
     public static void main(String[] args) throws FileNotFoundException {
-        WordCount wordCount = new WordCount("input.txt");
-        WordCount wordCount1 = new WordCount("output.txt");
-        Thread t1 = new Thread(wordCount);
-        Thread t2 = new Thread(wordCount1);
-        t1.run(); // I have faced difficulty to use start();
-        t2.run();
-        System.out.println("1 : " + wordCount.getNumberOfWords());
-        System.out.println("2 : " + wordCount1.getNumberOfWords());
+        Scanner in = new Scanner(System.in);
+        String fileName = in.next();
+        String anotherFileName = in.next();
+
+        WordCount r1 = new WordCount(fileName);
+        WordCount r2 = new WordCount(anotherFileName);
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        t1.start();
+        t2.start();
     }
 }
