@@ -1,18 +1,9 @@
 public class BankAccount {
     private double balance;
     private int accountNumber;
-
-    public BankAccount(int accountNumber, double amount) {
+    public BankAccount(int accountNumber, double initialBalance) {
         this.accountNumber = accountNumber;
-        balance = amount;
-    }
-
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
-    public void withdraw(double amount) {
-        balance -= amount;
+        balance = initialBalance;
     }
 
     public double getBalance() {
