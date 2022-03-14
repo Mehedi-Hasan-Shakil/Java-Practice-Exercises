@@ -22,6 +22,7 @@ public class Bank {
 
             } catch (InputMismatchException e) {
                 chanceLeft--;
+                account.clear();
                 System.out.print("Wrong data format. Another chance to choose file : ");
                 Scanner input = new Scanner(System.in);
                 fileName = input.next();
