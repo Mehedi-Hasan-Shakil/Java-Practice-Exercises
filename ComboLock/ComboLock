@@ -26,7 +26,7 @@ public class ComboLock {
             isFirstTurnToRight = false;
         } else {
             if (currentPosition + ticks > MAX_NUMBER) {
-                currentPosition = (MAX_NUMBER + currentPosition) % 40;
+                currentPosition = (ticks + currentPosition) % 40;
                 if (currentPosition == secret3) position3 = true;
             } else {
                 currentPosition += ticks;
