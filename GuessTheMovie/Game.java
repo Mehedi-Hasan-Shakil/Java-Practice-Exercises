@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Game {
     String getRandomMovieName(ArrayList<String> movies) {
         Random generator = new Random();
-        int index = (int) (generator.nextDouble() * movies.size());
+        int index = generator.nextInt(movies.size());
         return movies.get(index);
     }
 
@@ -25,9 +25,9 @@ public class Game {
         return movieName.toCharArray();
     }
 
-    char[] replaceTheCharacter(char singleCharacter, char[] movieName, char[] encryptedMovieName) {
-        for (int i = 0; i < movieName.length; i++) {
-            if (movieName[i] == singleCharacter) {
+    char[] replaceTheCharacter(char singleCharacter, String movieName, char[] encryptedMovieName) {
+        for (int i = 0; i < movieName.length(); i++) {
+            if (movieName.charAt(i) == singleCharacter) {
 
                 encryptedMovieName[i] = singleCharacter;
             }
