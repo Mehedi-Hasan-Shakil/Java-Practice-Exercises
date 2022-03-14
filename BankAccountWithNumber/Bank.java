@@ -6,29 +6,31 @@ import java.util.Scanner;
 
 public class Bank {
     private ArrayList<BankAccount> accounts = new ArrayList<>();
+    int chanceLeft = 1;
+    boolean isDone = false;
 
     public ArrayList<BankAccount> readFile(String fileName) throws FileNotFoundException {
-        int chanceLeft = 2;
-        boolean isDone = false;
-        while (chanceLeft > 0 && !isDone) {
+        try (Scanner in = new Scanner(new File(fileName))) {
+            read(in);
+            return accounts;
+        }
+    }
 
-            try (Scanner in = new Scanner(new File(fileName));) {
+    public void read(Scanner in) throws FileNotFoundException {
+        while (!isDone && chanceLeft > 0) {
+            try {
                 while (in.hasNextLine()) {
-                    int accountNumber = in.nextInt();
-                    double initialBalance = in.nextDouble();
-                    accounts.add(new BankAccount(accountNumber, initialBalance));
+                    accounts.add(new BankAccount(in.nextInt(), in.nextDouble()));
                 }
                 isDone = true;
-
             } catch (InputMismatchException e) {
                 chanceLeft--;
-                account.clear();
-                System.out.print("Wrong data format. Another chance to choose file : ");
+                accounts.clear();
+                System.out.print("Data is not properly formatted. Enter another file name : ");
                 Scanner input = new Scanner(System.in);
-                fileName = input.next();
+                readFile(input.next());
             }
         }
-        return accounts;
     }
 
     public BankAccount largestAccount(ArrayList<BankAccount> accounts) {
