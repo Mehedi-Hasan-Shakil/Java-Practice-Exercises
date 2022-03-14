@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class BankAccountTester {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(System.in);
         Bank bank = new Bank();
-        ArrayList<BankAccount> accounts = bank.readFile(in.next());
-        System.out.println("Largest account balance is : " + bank.largestAccount(accounts).getBalance());
+        Scanner in = new Scanner(System.in);
+        String fileName = in.next();
+        ArrayList<BankAccount> accounts = bank.readFile(fileName);
+        System.out.println(bank.largestAccount(accounts).getBalance());
     }
 }
