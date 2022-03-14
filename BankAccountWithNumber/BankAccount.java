@@ -1,6 +1,7 @@
 public class BankAccount {
     private double balance;
     private int accountNumber;
+
     public BankAccount(int accountNumber, double initialBalance) {
         this.accountNumber = accountNumber;
         balance = initialBalance;
@@ -14,3 +15,4 @@ public class BankAccount {
         return accountNumber;
     }
 }
+
