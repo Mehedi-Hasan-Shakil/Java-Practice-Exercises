@@ -15,20 +15,20 @@ public class GuessTheMovie {
         char[] encryptedMovieName = game.encryptMovieName(movieName);
         System.out.print("You are guessing : ");
         System.out.println(encryptedMovieName);
-        //System.out.println(encryptedMovieName);
+        
         while (wrongCounter < 10) {
             System.out.print("Guess a letter : ");
             char singleCharacter = inputCharacter.next().charAt(0);
 
-            if (movieName.toString().contains(singleCharacter + "")) {
-                encryptedMovieName = game.replaceTheCharacter(singleCharacter, movieName.toCharArray(), encryptedMovieName);
+            if (movieName.contains(singleCharacter + "")) {
+                encryptedMovieName = game.replaceTheCharacter(singleCharacter, movieName, encryptedMovieName);
             } else {
                 wrongCounter++;
             }
             System.out.println("You have guessed (" + wrongCounter + ") wrong letters:");
             System.out.print("You are guessing : ");
             System.out.println(encryptedMovieName);
-            if (!(new String(encryptedMovieName).contains("_"))) {
+            if (!(new String(encryptedMovieName)).contains("_")) {
                 System.out.println("Congratulation!!! You have won the game");
                 break;
             }
